@@ -1,0 +1,48 @@
+import { useState } from "react";
+import SearchBar from "./components/SearchBar";
+import MovieList from "./components/MovieList";
+import Loading from "./components/Loading";
+import ErrorMessage from "./components/ErrorMessage";
+import { fetchMovies } from "./utils/api";
+
+export default function App() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSearch = async (query) => {
+    if (!query.trim()) {
+      setError("Please enter a movie title.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setError("");
+      const data = await fetchMovies(query);
+      setMovies(data.Search || []);
+    } catch (err) {
+      setError(err.message);
+      setMovies([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="app">
+      <h1>🎬 Movie Search</h1>
+
+      <SearchBar onSearch={handleSearch} />
+
+      {loading && <Loading />}
+      {error && <ErrorMessage message={error} />}
+
+      {!loading && !error && movies.length === 0 && (
+        <p>No movies found.</p>
+      )}
+
+      <MovieList movies={movies} />
+    </div>
+  );
+}
