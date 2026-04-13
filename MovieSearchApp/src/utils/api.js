@@ -12,6 +12,9 @@ export const fetchMovies = async (query, page = 1) => {
   if (data.Response === "False") {
     throw new Error(data.Error);
   }
-
+  
+  if (!API_KEY) {
+    throw new Error("API key is missing. Check your .env file.");
+  }
   return data;
 };
