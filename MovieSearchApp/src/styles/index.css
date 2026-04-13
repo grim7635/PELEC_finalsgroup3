@@ -152,6 +152,8 @@ body {
 }
 .movie-card {
   padding-bottom: 6px;
+  cursor: pointer;
+  user-select: none;
 }
 /* Loading & error */
 .loading {
@@ -164,4 +166,159 @@ body {
   color: #ef4444;
   font-size: 16px;
   margin-top: 20px;
+}
+
+/* 🌫️ Background overlay with blur */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  animation: fadeIn 0.2s ease-in-out;
+}
+.modal-content {
+  width: 90%;
+  max-width: 720px;
+  background: #121212;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.7);
+
+  animation: popIn 0.25s ease-out forwards;
+}
+
+/* layout */
+.modal-layout {
+  display: flex;
+  width: 100%;
+}
+
+/* poster */
+.modal-poster {
+  flex: 1;
+}
+
+.modal-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* info */
+.modal-info {
+  flex: 1.2;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* title */
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* meta row */
+.meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 14px;
+}
+
+.dot {
+  opacity: 0.5;
+}
+
+/* description */
+.description {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+/* badges */
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  font-size: 0.75rem;
+}
+
+.badge.primary {
+  background: #e50914;
+}
+
+.badge.subtle {
+  opacity: 0.6;
+}
+
+/* button */
+.watch-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #e50914;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  background: #ff1f1f;
+}
+
+/* close button tweak */
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  background: none;
+  border: none;
+  color: #aaa;
+
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .modal-layout {
+    flex-direction: column;
+  }
+
+  .modal-content {
+    max-width: 95%;
+  }
+
+  .modal-poster img {
+    height: 320px;
+  }
 }
