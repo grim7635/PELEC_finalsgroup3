@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+}
+
+.container {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.play {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  background: #00c896;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.play:hover {
+  background: #00e6a8;
+  transform: scale(1.05);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 120px); /* bigger columns */
+  gap: 18px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.tile {
+  height: 120px;          /* bigger box */
+  width: 120px;           /* keep it square */
+  border-radius: 16px;
+  font-size: 40px;        /* bigger icon */
+  border: none;
+  cursor: pointer;
+  background: #3a3a5a;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+/* hover effect */
+.tile:hover {
+  transform: scale(1.08);
+  background: #50507a;
+}
+
+/* when revealed */
+.tile:active {
+  transform: scale(0.95);
+}
+
+/* BUTTON */
+.reset {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background: #ff7a18;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.reset:hover {
+  background: #ff9a3c;
+}
