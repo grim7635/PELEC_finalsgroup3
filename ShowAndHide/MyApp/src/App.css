@@ -14,7 +14,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 20px;
-  margin-top: -200px;
+  margin-top: -150px;
 }
 
 /* title */
@@ -23,23 +23,6 @@ h1 {
   margin-bottom: 14px;
   letter-spacing: 2px;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.1);
-}
-
-/* stats (if you use it later) */
-.stats {
-  margin-bottom: 18px;
-  padding: 10px 16px;
-  border-radius: 14px;
-
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(14px);
-
-  display: flex;
-  gap: 18px;
-  font-size: 14px;
-  color: #d6d6e7;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* grid */
@@ -60,7 +43,7 @@ h1 {
   margin: 20px 0;
 }
 
-/* tile */
+/* tile base */
 .tile {
   width: 120px;
   height: 120px;
@@ -71,22 +54,30 @@ h1 {
   background: linear-gradient(145deg, #2a2a44, #1c1c33);
 
   font-size: 42px;
+  color: white;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
 
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* fix FontAwesome color */
+.tile svg {
+  color: inherit;
 }
 
 /* hover */
 .tile:hover {
   transform: translateY(-4px) scale(1.03);
   background: linear-gradient(145deg, #3a3a60, #252542);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* click */
@@ -94,53 +85,33 @@ h1 {
   transform: scale(0.95);
 }
 
-/* flipped (LIGHT + GLOW FIX) */
+/* flipped */
 .flipped {
-  background: linear-gradient(145deg, #8fb3ff, #c3d6ff);
+  background: linear-gradient(145deg, #9fc2ff, #d6e4ff);
   color: #0b0b14;
 
   box-shadow: 0 0 25px rgba(120, 170, 255, 0.5),
               0 0 60px rgba(120, 170, 255, 0.25);
-
-  transform: scale(1.03);
 }
 
-/* matched (reward feel) */
+/* matched */
 .matched {
   background: linear-gradient(145deg, #00f0c2, #00b894);
   color: #0b0b14;
 
   box-shadow: 0 0 25px rgba(0, 240, 194, 0.4),
               0 0 60px rgba(0, 240, 194, 0.2);
+}
 
-  transform: scale(0.98);
+/* prevent hover glitch on states */
+.flipped:hover,
+.matched:hover {
+  transform: scale(1.03);
 }
 
 /* buttons */
 button {
   font-family: inherit;
-}
-
-/* play */
-.play {
-  padding: 14px 36px;
-  font-size: 16px;
-  border-radius: 14px;
-  border: none;
-
-  background: linear-gradient(145deg, #00c896, #00f5b0);
-  color: white;
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: 0.25s ease;
-
-  box-shadow: 0 12px 28px rgba(0, 200, 150, 0.25);
-}
-
-.play:hover {
-  transform: scale(1.07);
-  box-shadow: 0 18px 40px rgba(0, 200, 150, 0.35);
 }
 
 /* restart */
@@ -153,31 +124,12 @@ button {
   color: white;
   font-weight: bold;
 
-  margin-right: 10px;
   cursor: pointer;
-
   transition: 0.2s;
 }
 
 .reset:hover {
   transform: translateY(-2px);
-}
-
-/* back */
-.back {
-  padding: 10px 18px;
-  border-radius: 12px;
-  border: none;
-
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.back:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 /* mobile */
